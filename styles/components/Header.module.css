@@ -32,35 +32,17 @@
 .header > section {
     margin-left: 0vw;
     width: 100vw;
-    border-bottom: 0.3vw solid black;
+    border-bottom: 0.4vw solid black;
     height: 18vh;
     display: flex;
     align-items: flex-end;
-    z-index: 4 !important;
+    z-index: -1 !important;
+    /* position: fixed; */
 }
 
 .header > section > article {
     margin-left: 48vw;
 }
-
-/* .header > section > * {
-    /* height: 7vh; */
-    /* background-color: black; */
-    /* border-top-left-radius: 30px;
-    border-top-right-radius: 30px; */
-
-    /*width: 15vw;
-    height: 0;
-    border-top: 0px solid black;
-    border-left: 1vw solid transparent;
-    border-right: 1vw solid transparent;
-    border-bottom: 3.5vw solid black;
-    border-top-left-radius: 4vw;
-    border-top-right-radius: 4vw;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-} */
 
 .header > section > *::after {
     z-index: -1;
@@ -114,6 +96,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 0.4vh;
 }
 
 /* .header > section > div {
@@ -129,8 +112,8 @@
     margin-top: 1vh;
 }
 
-.header article:hover, .header div:hover {
-    opacity: 0.9;
+.header article:hover, .header div:hover, .header p:hover {
+    opacity: 0.98;
     cursor: pointer;
 }
 
@@ -151,9 +134,9 @@
 }
 
 .lowest {
-    z-index: -2 !important;
+    z-index: 1 !important;
 }
 
 .highest {
-    z-index: -1 !important;
+    z-index: 2!important;
 }
