@@ -23,6 +23,11 @@ const Header: NextPage = () => {
         if (!res.ok) {
             setErr((await res.json()).error);
             setTimeout(() => setErr(""), 2000);
+        } else {
+            const json = await res.json();
+            localStorage.setItem("token", (json.token));
+            localStorage.setItem("teamNum", (json.teamNum));
+            window.location.reload();
         }
     }
 

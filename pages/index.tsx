@@ -8,16 +8,8 @@ import Login from '../components/login';
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Sushi Structures</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Header />
-
-      <Login />
     </div>
   )
 }
 
-export default Home
+export default Home;

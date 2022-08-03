@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { compare, genSalt, hash } from "bcryptjs";
 import {prisma} from "../../util/prisma";
 import { isInt16Array } from 'util/types';
+import makeid from '../../util/randomString';
 
 export default async function handler(
   req: NextApiRequest,
@@ -32,7 +33,21 @@ export default async function handler(
         if (!(await compare(pass, found.password))) {
             res.status(400).json({ error: "Incorrect password"});
         } else {
-            res.status(200).json({ error: "" });
+            const date = new Date();
+            const id = makeid(20);
+            date.setMonth(date.getMonth() + 1);
+
+            await prisma.users.update({
+                where: {
+                    teamNum: parsedNum,
+                },
+                data: {
+                    token: id,
+                    expire: date
+                }
+            });
+
+            res.status(200).json({ token: id, teamNum: parsedNum});
         }
       }
     } else {

@@ -14,4 +14,6 @@ model Users {
   id Int @id @default(autoincrement())
   teamNum Int @unique
   password String
+  token String
+  expire DateTime
 }

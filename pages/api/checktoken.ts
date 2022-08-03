@@ -11,15 +11,13 @@ export default async function handler(
 ) {
   try {
     if (req.method === 'POST') {
-      const { num, pass } = req.body;
+      const { num, token } = req.body;
 
       if (!(/^[0-9]+$/.test(num))) {
         res.status(400).json({ error: "Team num is not a number"});
         return;
       }
-
       const parsedNum = parseInt(num);
-
 
       const found = await prisma.users.findUnique({
         where: {
@@ -27,26 +25,14 @@ export default async function handler(
         }
       });
 
-      if (found !== null) {
-        res.status(400).json({ error: "Team num already in use"});
+      if (found === null) {
+        res.status(400).json({ error: "Team num not found"});
+      } else if (found.token !== token) {
+        res.status(400).json({ error: "Invalid token"});
+      } else if ((new Date(found.expire)) < (new Date())){
+        res.status(400).json({ error: "Token Expired"});
       } else {
-        const salt = await genSalt();
-        const hashRes = await hash(pass, salt);
-
-        const date = new Date();
-        const id = makeid(20);
-        date.setMonth(date.getMonth() + 1);
-
-        await prisma.users.create({
-          data: {
-            teamNum: parsedNum,
-            password: hashRes,
-            token: id,
-            expire: date.toISOString()
-          }
-        });
-
-        res.status(200).json({ token: id, teamNum: parsedNum});
+        res.status(200).json({ error: ""});
       }
     } else {
       res.status(400).json({ error: "Method is POST only" })
