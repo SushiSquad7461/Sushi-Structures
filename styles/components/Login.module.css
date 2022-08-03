@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Mohave:wght@300&display=swap');
+
+.login {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login div {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background-color: #4F4F4F;
+    z-index: 100;
+    opacity: 0.5; 
+}
+
+.login form * {
+    z-index: 101 !important;
+    opacity: 1 !important;
+}
+
+.login form {
+    height: 48vh;
+    width: 25vw;
+    background-color: white;
+    z-index: 101;
+    border-radius: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 3vh;
+}
+
+.login button {
+    font-family: 'SushiSans';
+    background-color: white;
+    border-color: black;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 0.6vh;
+    padding-bottom: 0.6vh;
+    color: black !important;
+    font-size: 1.5vw;
+    border-radius: 0.8vw;
+    margin-top: 4vh;
+}
+
+.login button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.login input::placeholder {
+    color: black;
+}
+
+.login p {
+    color: #56CBF9;
+    font-family: 'Mohave';
+    font-size: 1.4vw;
+}
+
+.login p:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.login input {
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    border-bottom-color: black !important;
+    border-bottom-width: 0.4vh !important;
+    width: 50%;
+    font-family: 'Mohave';
+    color: black;
+    text-align: center;
+    font-size: 1.3vw;
+    font-weight: bold;
+    margin-top: 3vh;
+}
+
+
+.login h6 {
+    bottom: 26vh;
+    font-size: 0.5vw;
+    width: 20vw;
+    text-align: center;
+    position: absolute;
+}

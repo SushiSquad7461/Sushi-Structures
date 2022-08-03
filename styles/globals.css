@@ -1,4 +1,5 @@
 @font-face { font-family: SushiSans; src: url('SushiSans.ttf'); font-display: swap;}
+@import url('https://fonts.googleapis.com/css2?family=Mohave:wght@300&display=swap');
 
 html,
 body {
@@ -15,4 +16,8 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+input:focus {
+    outline: none !important;
 }

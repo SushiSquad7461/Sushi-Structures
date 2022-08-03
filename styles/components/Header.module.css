@@ -68,7 +68,7 @@
     content: "";
     position: absolute;
     top: 0;
- left: 0;
+    left: 0;
     height: 100%;
     width: 6vw;
     background-color: white;
@@ -96,7 +96,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0.4vh;
+    margin-bottom: 0.3vh;
 }
 
 /* .header > section > div {
