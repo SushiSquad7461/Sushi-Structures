@@ -21,3 +21,7 @@ a {
 input:focus {
     outline: none !important;
 }
+
+.err {
+  color: red;
+}
