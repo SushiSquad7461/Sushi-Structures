@@ -11,6 +11,7 @@ import { ConfigFile, createConfigFile } from '../util/configfile';
 const Create: NextPage = () => {
   const [login, setLogin] = useState(true);
   const [data, setData] = useState<ConfigFile>(createConfigFile(0));
+  const [teamNum, setTeamNum] = useState<Number>(0);
 
   useEffect(() => {
     const teamNum = localStorage.getItem("teamNum");
@@ -27,16 +28,27 @@ const Create: NextPage = () => {
             });
 
             if (res.ok) {
-                setData(createConfigFile(parseInt(teamNum)))
+
+                if (localStorage.getItem("config" + parseInt(teamNum)) !== null) {
+                  setData(JSON.parse(localStorage.getItem("config" + parseInt(teamNum))!));
+                } else {
+                  setData(createConfigFile(parseInt(teamNum)));
+                }
+                setTeamNum(parseInt(teamNum));
                 setLogin(false);
             }
         }
     })();
   }, []);
 
+  function changeData(newData: ConfigFile) {
+    setData(newData);
+    localStorage.setItem("config" + teamNum, JSON.stringify(newData));
+  }
+
   return (
     <div className={styles.container}>
-      { login ? <Login /> : <ConfigFileEditor data={data} setData={setData}/>}
+      { login ? <Login /> : <ConfigFileEditor data={data} setData={changeData}/>}
     </div>
   )
 }

@@ -1,0 +1,129 @@
+.popup {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.opacity {
+    position: absolute;
+    height: 100vh;
+    background-color: #4F4F4F;
+    z-index: 100;
+    opacity: 0.5; 
+    width: 100vw;
+    top: 0px;
+}
+
+.popup article {
+    height: 50vh;
+    width: 25vw;
+    background-color: white;
+    border-radius: 1vw;
+    z-index: 101 !important;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8vh;
+    padding-bottom: 6vh;
+}
+
+.popup input {
+    border-left: 0px;
+    border-top: 0px;
+    border-right: 0px;
+    border-bottom-width: 0.3vh;
+    border-bottom-color: black;
+    width: 15vw;
+    text-align: center;
+    color: black;
+    font-family: 'Mohave';
+    font-size: 1.3vw;
+}
+
+.popup input::placeholder {
+    color: black;
+}
+
+.popup article * {
+    z-index: 101 !important;
+    opacity: 1 !important;
+}
+
+.popup svg {
+    color: black !important;
+    position: absolute;
+    left: 59.8vw;
+    top: 31vh;
+    z-index: 103 !important;
+    width: 2vw;
+    height: 2vw;
+}
+
+
+.popup svg:hover {
+    opacity: 0.8 !important;
+    cursor: pointer;
+}
+
+.popup p {
+    font-family: 'Mohave';
+    font-size: 1.5vw;
+    font-weight: bolder;
+    margin: 0px;
+    height: 4.3vh;
+}
+
+.popup p:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.border {
+    border: 0.2vw solid #56CBF9;
+    border-radius: 0.8vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 0.1vh;
+    padding-bottom: 0.1vh;
+    text-transform: lowercase !important;
+    height: 4vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup button {
+    background-color: white;
+    border: 0.15vw solid black;
+    width: 6vw;
+    height: 4vh;
+    border-radius: 0.5vw;
+    font-family: "SushiSans";
+    font-size: 1.2vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.3vh;
+}
+
+.popup button:hover {
+    opacity: 0.7 !important;
+    cursor: pointer;
+}
+
+.popup input:disabled {
+    background-color: white;
+    border-bottom-color: #4F4F4F;
+    color: #4F4F4F;
+}
+
+.popup input:disabled::placeholder {
+    color: #4F4F4F;
+}

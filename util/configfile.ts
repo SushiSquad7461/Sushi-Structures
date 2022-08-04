@@ -1,5 +1,9 @@
 import { randomInt } from "crypto";
 
+export type section = {
+
+}
+
 export type ConfigFile = {
     "year": Number,
     "teamNumber": Number,
@@ -7,7 +11,10 @@ export type ConfigFile = {
     "version": Number,
     "scouting": {
         [method: string]: {
-
+            [page: string]: {
+                "footer": string,
+                "sections": Array<section>
+            }
         }
     },
 }

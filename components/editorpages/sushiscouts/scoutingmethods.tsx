@@ -43,7 +43,7 @@ const ScoutingMethods: NextPage<PropsData> = (props: PropsData) => {
             <section className={styles.list}>
                 {
                     Object.keys(props.data.scouting).map(key => {
-                        return <p>{key}</p>
+                        return <p onClick={() => props.setPage("scoutingmethod." + key)} key={key}>{key}</p>
                     })
                 }
 
