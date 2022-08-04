@@ -9,7 +9,7 @@ type PropsData = {
     setPage: Function,
 };
 
-const ConfigFileEditor: NextPage<PropsData> = (props: PropsData) => {
+const Year: NextPage<PropsData> = (props: PropsData) => {
     const [year, setYear] = useState<Number>(props.data.year);
 
     function changeYear(event: any) {
@@ -20,7 +20,7 @@ const ConfigFileEditor: NextPage<PropsData> = (props: PropsData) => {
 
     return <>
         <article className={styles.select}>
-            <section className={styles.left}>
+            <section className={styles.left} onClick={() => props.setPage("Sushi Scouts")}>
                 <p>SUSHI SCOUTS</p>
             </section>
 
@@ -41,4 +41,4 @@ const ConfigFileEditor: NextPage<PropsData> = (props: PropsData) => {
     </>
 };
 
-export default ConfigFileEditor;
+export default Year;

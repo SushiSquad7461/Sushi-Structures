@@ -5,6 +5,11 @@ export type ConfigFile = {
     "teamNumber": Number,
     "password": string,
     "version": Number,
+    "scouting": {
+        [method: string]: {
+
+        }
+    },
 }
 
 export function createConfigFile(teamNumber: Number): ConfigFile {
@@ -14,6 +19,9 @@ export function createConfigFile(teamNumber: Number): ConfigFile {
         "teamNumber": teamNumber,
         "password": possiblePasswords[Math.floor(Math.random() * (possiblePasswords.length-1))],
         "version": 0,
+        "scouting": {
+
+        },
     };
 
     return ret;

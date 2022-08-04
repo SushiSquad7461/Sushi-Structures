@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { ConfigFile } from "../util/configfile";
+import ScoutingMethods from "./editorpages/sushiscouts/scoutingmethods";
 import Year from "./editorpages/year";
 
 type PropsData = {
@@ -17,6 +18,9 @@ const ConfigFileEditor: NextPage<PropsData> = (props: PropsData) => {
             case "year":
                 setRet(<Year setData={props.setData} data={props.data} setPage={setCurrPage}/>);
                 break;  
+            case "Sushi Scouts":
+                setRet(<ScoutingMethods setData={props.setData} data={props.data} setPage={setCurrPage}/>);
+                break;
             default:
                 setRet(<p>Page {currPage} is not defined</p>);
                 break;

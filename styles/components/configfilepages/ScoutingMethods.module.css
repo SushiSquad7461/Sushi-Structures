@@ -1,0 +1,72 @@
+.title {
+    position: absolute;
+    font-family: 'SushiSans';
+    font-size: 2.5vw;
+    top: 23vh;
+    left: 30vw;
+}
+
+.methods {
+    position: absolute;
+    height: 80vh;
+    width: 100vw;
+    top: 20vh;
+    overflow: hidden;
+}
+
+.black {
+    background-color: black;
+    width: 100vw;
+    height: 80vh;
+    position: absolute;
+    left: 30vw;
+    transform: rotate(-7deg);
+    top: 10vh;
+}
+
+.grey {
+    background-color: #4F4F4F;
+    width: 78vw;
+    height: 80vh;
+    position: absolute;
+    left: 20vw;
+    transform: rotate(-20deg);
+    top: 25vh;
+}
+
+.list {
+    position: absolute;
+    left: 35vw;
+    color: white;
+    top: 24vh;
+    font-family: "SushiSans";
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.list p {
+    font-size: 1.5vw;
+    display: flex;
+    text-transform: uppercase;
+}
+
+.list svg {
+    width: 1.2vw;
+    height: 1.2vw;
+    margin-left: 0.7vw;
+    margin-top: 0.3vh;
+}
+
+.list input {
+    background-color: black;
+    border-width: 0px;
+    color: white;
+    font-size: 1.5vw;
+}
+
+.list svg:hover, .list p:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
