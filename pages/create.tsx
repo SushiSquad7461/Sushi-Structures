@@ -5,9 +5,12 @@ import styles from '../styles/Home.module.css'
 import Header from "../components/header";
 import Login from '../components/login';
 import { useEffect, useState } from 'react';
+import ConfigFileEditor from '../components/configfileditor';
+import { ConfigFile, createConfigFile } from '../util/configfile';
 
 const Create: NextPage = () => {
   const [login, setLogin] = useState(true);
+  const [data, setData] = useState<ConfigFile>(createConfigFile(0));
 
   useEffect(() => {
     const teamNum = localStorage.getItem("teamNum");
@@ -24,6 +27,7 @@ const Create: NextPage = () => {
             });
 
             if (res.ok) {
+                setData(createConfigFile(parseInt(teamNum)))
                 setLogin(false);
             }
         }
@@ -32,9 +36,7 @@ const Create: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      { login ? <Login /> : <>
-
-      </>}
+      { login ? <Login /> : <ConfigFileEditor data={data} setData={setData}/>}
     </div>
   )
 }

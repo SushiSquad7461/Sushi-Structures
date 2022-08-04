@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Mohave:wght@300&display=swap');
+
+.select {
+    position: absolute;
+    height: 80vh;
+    width: 60vw;
+    top: 20vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.select section {
+    height: 80vh;
+    width: 22vw;
+    border-width: 0.5vw;
+    border-color: black;
+    display: flex;
+    justify-content: center;
+    border-style: solid;
+    background-color: white;
+}
+
+.select section:hover {
+    transition: transform 0.1s;
+    z-index: transform 0.1s;
+    transform: rotate(5deg);
+    z-index: 20 !important;
+    transition-timing-function: ease-in-out;
+    cursor: pointer;
+}
+
+.left {
+    position: absolute;
+    bottom: -20vh;
+    transform: rotate(6deg);
+    z-index: 10 !important;
+}
+
+.center {
+    position: absolute;
+    bottom: -28vh;
+    transform: rotate(13deg);
+    left: 12vw;
+    z-index: 11 !important;
+}
+
+.right {
+    position: absolute;
+    bottom: -40vh;
+    transform: rotate(18deg);
+    left: 22vw;
+    z-index: 12 !important;
+}
+
+.select p {
+    font-family: 'Mohave';
+    font-size: 1.2vw;
+}
+
+.year {
+    width: 40vw;
+    height: 80vh;
+    position: absolute;
+    top: 20vh;
+    left: 60vw;
+    overflow-y: hidden;
+}
+
+.year .black {
+    width: 28vw;
+    height: 80vh;
+    background-color: black;
+    position: absolute;
+    right: -3vw;
+    transform: rotate(-9deg);
+    top: 10vh;
+}
+
+.year .grey {
+    width: 28vw;
+    height: 80vh;
+    background-color: #4F4F4F;
+    position: absolute;
+    right: 2vw;
+    transform: rotate(-18deg);
+    top: 11vh;
+}
+
+.year input {
+    position: absolute;
+    left: 20vw;
+    top: 25vh;
+    background-color: black;
+    color: white;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 2hv;
+    border-bottom-color: white;
+    text-align: center;
+    width: 17vw;
+    font-size: 1.5vw;
+    padding-bottom: 1vh;
+    font-family: 'Mohave';
+}
+
+.year input::placeholder {
+    color: white;
+}
