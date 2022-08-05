@@ -1,0 +1,25 @@
+.page {
+    position: absolute;
+    top: 32vh;
+    left: 10vw;
+    height: 68vh;
+    width: 90vw;
+}
+
+.page h1 {
+    font-family: "SushiSans";
+    text-transform: uppercase;
+    color: #4F4F4F;
+    font-size: 2vw;
+}
+
+.page p {
+    position: absolute;
+    bottom: -2vh;
+    left: -3vw;
+    font-family: 'Mohave';
+    color: #4F4F4F;
+    font-size: 1.5vw;
+    font-weight: bold;
+    text-transform: uppercase;
+}

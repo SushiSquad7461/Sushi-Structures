@@ -3,6 +3,7 @@ import { SetStateAction, useEffect, useState } from "react";
 import { ConfigFile } from "../../../util/configfile";
 import styles from "../../../styles/components/configfilepages/Method.module.css";
 import NewPage from "./newpage";
+import Page from "./page";
 
 type PropsData = {
     data: ConfigFile,
@@ -13,16 +14,18 @@ type PropsData = {
 
 const ScoutingMethods: NextPage<PropsData> = (props: PropsData) => {
     const [newPage, setNewPage] = useState<boolean>(Object.keys(props.data.scouting[props.method]).length === 0);
-
-    useEffect(() => {
-        console.log(props.data.scouting[props.method]);
-    }, []);
+    const [currPage, setCurrPage] = useState<string>(Object.keys(props.data.scouting[props.method]).length === 0 ? "" : Object.keys(props.data.scouting[props.method])[(Object.keys(props.data.scouting[props.method]).length)-1]);
 
     function goBack() {
         if (Object.keys(props.data.scouting[props.method]).length !== 0) {
             setNewPage(false);
+            setCurrPage(Object.keys(props.data.scouting[props.method])[(Object.keys(props.data.scouting[props.method]).length)-1]);
         }
     }
+
+    useEffect(() => {
+        console.log(currPage);
+    }, [currPage]);
 
     return <>
         <section className={styles.title}>
@@ -33,9 +36,20 @@ const ScoutingMethods: NextPage<PropsData> = (props: PropsData) => {
             <h1>{props.method}</h1>
         </section>
 
-        <section className={styles.pageSelector}>
-
+        <section className={styles.pageSelector}> 
+            {
+                Object.keys(props.data.scouting[props.method]).map((key, i) => {
+                    return <p key={key} onClick={() => setCurrPage(key)}>P{i+1}</p>
+                })
+            }
+            <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={() => { setNewPage(true); console.log("hello")}}>
+                <rect width="7.57908" height="29.9968" rx="3.78954" transform="matrix(0.000588272 -1 1 0.000300139 0 18.5259)" fill="#4F4F4F"/>
+                <rect x="18.8632" y="30" width="7.62126" height="30" rx="3.81063" transform="rotate(-180 18.8632 30)" fill="#4F4F4F"/>
+            </svg>
         </section>
+
+        { !newPage && <Page data={props.data} setData={props.setData} method={props.method} page={currPage}/> }
+
         { newPage && <NewPage data={props.data} setData={props.setData} method={props.method} back={goBack}/>}
     </>
 };
