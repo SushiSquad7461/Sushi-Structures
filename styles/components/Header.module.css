@@ -1,6 +1,6 @@
 .img {
-    height: 70vh;
-    position: absolute;
+    height: 70vh !important;
+    position: absolute !important;
     z-index: 0;
 }
 

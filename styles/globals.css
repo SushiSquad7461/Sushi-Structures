@@ -1,5 +1,5 @@
 @font-face { font-family: SushiSans; src: url('SushiSans.ttf'); font-display: swap;}
-@import url('https://fonts.googleapis.com/css2?family=Mohave:wght@300&display=swap');
+@font-face { font-family: Mohave; src: url("Mohave/static/Mohave-Regular.ttf"); font-display: swap;}
 
 html,
 body {
