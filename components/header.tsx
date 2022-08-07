@@ -12,7 +12,7 @@ const Header: NextPage = () => {
     }, []);
 
     return <section className={styles.header}>
-        <Image src="header.svg" alt="header drawing" className={styles.img} />
+        <img src="header.svg" alt="header drawing" className={styles.img} />
         <h1 className={styles.text}>sushi structure</h1>
 
         <section>
