@@ -53,6 +53,6 @@ export default async function handler(
     }
   } catch(e) {
     console.error(e);
-    res.status(500).json({ error: "server error, please try again latter"});
+    res.status(500).json({ error: "server error, please try again latter", extra: e});
   }
 }
