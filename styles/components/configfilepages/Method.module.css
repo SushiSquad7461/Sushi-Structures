@@ -11,6 +11,15 @@
     justify-content: center;
 }
 
+.title div {
+    z-index: 30 !important;
+}
+
+.title div:hover {
+    opacity: 0.9 !important;
+    cursor: pointer !important;
+}
+
 .back {
     height: 1.5vw;
     width: 1.5vw;
