@@ -1,0 +1,253 @@
+.popup {
+    height: 100vh !important;
+    width: 100vw !important;
+    position: absolute;
+    top: -28vh;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    left: -11vw;
+}
+
+.opacity {
+    position: absolute;
+    height: 100vh;
+    background-color: #4F4F4F;
+    z-index: 100;
+    opacity: 0.5; 
+    width: 100vw;
+    top: 0px;
+}
+
+.popup > article {
+    position: relative;
+    height: 73vh;
+    width: 26vw;
+    background-color: white;
+    border-radius: 1vw;
+    z-index: 101 !important;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5vh;
+    padding-bottom: 32vh;
+}
+
+.popup input {
+    border-left: 0px;
+    border-top: 0px;
+    border-right: 0px;
+    border-bottom-width: 0.5vh;
+    border-bottom-color: black;
+    width: 18vw;
+    text-align: center;
+    color: black;
+    font-family: 'Mohave';
+    font-size: 1.5vw;
+}
+
+.popup input::placeholder {
+    color: black;
+}
+
+.popup article * {
+    z-index: 101 !important;
+    opacity: 1 !important;
+}
+
+.popup svg {
+    color: black !important;
+    position: absolute;
+    right: 0.5vw;
+    top: 1vh;
+    z-index: 103 !important;
+    width: 2vw;
+    height: 2vw;
+}
+
+.popup svg:hover {
+    opacity: 0.8 !important;
+    cursor: pointer;
+}
+
+.popup p {
+    font-family: 'Mohave';
+    font-size: 1.5vw;
+    font-weight: bolder;
+    margin: 0px;
+    height: 4.3vh;
+}
+
+.popup article > p {
+    position: absolute;
+    top: 44vh;
+    font-size: 1.7vw;
+}
+
+.border {
+    border: 0.2vw solid #56CBF9;
+    border-radius: 0.8vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 0.1vh;
+    padding-bottom: 0.1vh;
+    text-transform: lowercase !important;
+    height: 4vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup button {
+    background-color: white;
+    border: 0.18vw solid black;
+    width: 5vw;
+    height: 4vh;
+    border-radius: 0.5vw;
+    font-family: "SushiSans";
+    font-size: 1.4vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.3vh;
+    position: absolute;
+    bottom: 3vh;
+}
+
+.popup button:hover {
+    opacity: 0.7 !important;
+    cursor: pointer;
+}
+
+.popup input:disabled {
+    background-color: white;
+    border-bottom-color: #4F4F4F;
+    color: #4F4F4F;
+}
+
+.popup input:disabled::placeholder {
+    color: #4F4F4F;
+}
+
+.colors {
+    width: 20vw !important;
+    height: 23vh !important;
+    border-radius: 1vw;
+    background-color: black;
+    margin: 0px !important;
+    color: white;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding-top: 1vh;
+}
+
+.colors p {
+    color: white;
+    font-size: 1.4vw;
+    font-family: "SushiSans";
+}
+
+.colors article {
+    margin-top: 0vh;
+    height: 16vh;
+    width: 18vw;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    align-items: center;
+}
+
+.colors article section {
+    height: 16vh !important;
+    width: 6vw !important;
+    margin: 0px !important;
+    display: flex;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.colors input {
+    background-color: black;
+    color: white;
+    width: 5vw;
+    font-size: 1.3vw;
+    border-color: white;
+    border-width: 0.4vh;
+    margin: 0px !important;
+    margin-bottom: 2.3vh !important;
+}
+
+.colors input::placeholder {
+    color: white;
+}
+
+.colors section > div {
+
+}
+
+.colors section div div {
+    width: 0.7vw;
+    height: 0.7vw;
+    border-radius: 50%;
+    z-index: 106 !important;
+    position: relative;
+    left: 6vw;
+    bottom: 5vh;
+    background-color: white;
+}
+
+.extrawide input {
+    width: 7vw !important;
+}
+
+.extrawide div {
+    left: 7vw !important;
+}
+
+.colors .dark div div {
+    left: -1.5vw !important;
+}
+
+.colors .dark .extrawide div {
+    left: -0.6vw !important;
+}
+
+.rowInput {
+    width: 6.5vw !important;
+    height: 5vh !important;
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-evenly !important;
+    align-items: flex-end !important;
+    margin: 0px !important;
+}
+
+.rowInput input { 
+    width: 4vw !important;
+    border-width: 0.4vh !important;
+    font-size: 1vw;
+    padding-bottom: 0.2vh;
+}
+
+.rowInput p {
+    font-size: 1.6vw;
+    font-family: "Mohave";
+    height: 3.4vh;
+}
+
+.cir {
+    display: grid;
+    width: 18vw;
+    height: 15vh;
+    position: absolute;
+    bottom: 10.3vh;
+    grid-template-columns: repeat(2, 11vw);
+    overflow-y: scroll;
+}

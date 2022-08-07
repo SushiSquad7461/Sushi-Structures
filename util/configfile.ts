@@ -1,7 +1,21 @@
 import { randomInt } from "crypto";
 
-export type section = {
 
+export type component = {
+
+}
+
+export type section = {
+    "properties": {
+        "title": string,
+        "color": string,
+        "rows": number,
+        "textColor": string,
+        "darkColor": string,
+        "darkTextColor": string,
+        "componentsInRow": Array<number>
+    },
+    "components": Array<component>
 }
 
 export type ConfigFile = {

@@ -4,22 +4,93 @@
     left: 10vw;
     height: 68vh;
     width: 90vw;
+    overflow-x: visible;
+    overflow-y: visible;
 }
 
 .page h1 {
     font-family: "SushiSans";
     text-transform: uppercase;
     color: #4F4F4F;
-    font-size: 2vw;
+    font-size: 2.5vw;
 }
 
-.page p {
+.page section {
+    /* background-color: gray; */
+    height: 52vh;
+    width: 60vw;
+    margin-top: -4vh;
+    margin-left: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.page > article {
+    height: 78vh;
+    position: absolute;
+    right: 0px;
+    top: -10vh;
+    width: 60vw;
+    overflow: hidden;
+}
+
+.page .black {
+    height: 100vh;
+    width: 35vw;
+    background-color: black;
+    transform: rotate(-11deg);
+    right: -5vw;
+    position: absolute;
+    top: 5.5vh;
+    z-index: 2;
+}
+
+.page .grey {
+    height: 100vh;
+    width: 35vw;
+    background-color: #4F4F4F;
+    transform: rotate(-20deg);
+    right: 0vw;
+    position: absolute;
+    top: 8vh;
+    z-index: 1;
+}
+
+.page > p {
     position: absolute;
     bottom: -2vh;
-    left: -3vw;
+    left: -4vw;
     font-family: 'Mohave';
     color: #4F4F4F;
-    font-size: 1.5vw;
-    font-weight: bold;
+    font-size: 1.6vw;
+    font-weight: bolder;
     text-transform: uppercase;
+}
+
+.page .sections article {
+    width: 12vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 5vh;
+    margin-top: 1vh;
+}
+
+.page .sections article:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.page .sections article p {
+    color: #56CBF9;
+    font-family: "SushiSans";
+    font-size: 1.4vw;
+    padding-top: 0.5vh;
+}
+
+.page .sections article svg {
+    width: 1.3vw;
+    height: 1.3vw;
 }
