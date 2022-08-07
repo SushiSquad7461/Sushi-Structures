@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from '../styles/components/Header.module.css'
+import Image from "next/image";
 
 const Header: NextPage = () => {
     const [currPage, setCurrPage] = useState("");
@@ -11,7 +12,7 @@ const Header: NextPage = () => {
     }, []);
 
     return <section className={styles.header}>
-        <img src = "header.svg" alt="header drawing" className={styles.img}/>
+        <Image src="header.svg" alt="header drawing" className={styles.img} />
         <h1 className={styles.text}>sushi structure</h1>
 
         <section>

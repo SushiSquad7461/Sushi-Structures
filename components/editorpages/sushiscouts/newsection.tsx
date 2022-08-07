@@ -96,7 +96,7 @@ const NewSection: NextPage<PropsData> = (props: PropsData) => {
             <div className={styles.cir}>
                 {
                     componentsInRow.map((i, index) => {
-                        return <section className={styles.rowInput}>
+                        return <section className={styles.rowInput} key={index}>
                             <p>{index as number + 1}</p>
                             <input type="number" defaultValue={i.toString()} onChange={(e) => {
                                 componentsInRow[index] = parseInt(e.target.value);

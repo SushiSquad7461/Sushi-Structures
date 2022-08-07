@@ -29,7 +29,7 @@ const ConfigFileEditor: NextPage<PropsData> = (props: PropsData) => {
                 setRet(<p>Page {currPage} is not defined</p>);
                 break;
         }
-    }, [currPage]);
+    }, [currPage, props.data, props.setData]);
 
     return ret;
 };
