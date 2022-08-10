@@ -1,8 +1,12 @@
-import { randomInt } from "crypto";
-
-
 export type component = {
-
+    "name": string,
+    "type": string,
+    "component": string,
+    "required": boolean,
+    "timestamp": boolean,
+    "isCommonValue": boolean,
+    "setCommonValue": boolean,
+    "values": Array<string>
 }
 
 export type section = {
@@ -46,4 +50,17 @@ export function createConfigFile(teamNumber: Number): ConfigFile {
     };
 
     return ret;
+}
+
+export function createEmptyComponent(): component {
+    return {
+        "name" : "",
+        "component" : "",
+        "values" : [],
+        "isCommonValue" : false,
+        "required" : false,
+        "type" : "",
+        "timestamp" : false,
+        "setCommonValue" : false,
+    }
 }

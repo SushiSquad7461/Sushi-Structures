@@ -1,9 +1,9 @@
 import { NextPage } from "next";
-import { SetStateAction, useEffect, useState } from "react";
-import { ConfigFile } from "../../../util/configfile";
+import { useState } from "react";
+import { ConfigFile, createEmptyComponent } from "../../../util/configfile";
 import styles from "../../../styles/components/configfilepages/Page.module.css";
 import NewSection from "./newsection";
-import { start } from "repl";
+import EditComponent from "./editcomponent";
 
 type PropsData = {
     data: ConfigFile,
@@ -15,6 +15,8 @@ type PropsData = {
 const Page: NextPage<PropsData> = (props: PropsData) => {
     const [addSection, setAddSection] = useState<boolean>(false);
     const [section, setSection] = useState<string>("");
+    const [componentIndex, setComponentIndex] = useState<number>(-1);
+    const [sectionIndex, setSectionIndex] = useState<number>(-1);
 
     function goBack() {
         setAddSection(false);
@@ -33,7 +35,7 @@ const Page: NextPage<PropsData> = (props: PropsData) => {
 
         <section className={styles.sections}>
             {
-                props.data.scouting[props.method][props.page].sections.map(key => {
+                props.data.scouting[props.method][props.page].sections.map((key, index) => {
                     return <article key={key.properties.title} className={styles.section}>
                         <div>
                             <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={() => switchPage(key.properties.title)} className={section === key.properties.title ? styles.selected : ""}>
@@ -73,7 +75,16 @@ const Page: NextPage<PropsData> = (props: PropsData) => {
                                                     }
 
                                                     for (let i=0; i <key.properties.componentsInRow[val-1]; ++i) {
-                                                        retArray.push(<p>COMPONENT</p>);
+                                                        retArray.push(
+                                                            <p onClick={ () => {
+                                                                console.log("click");
+                                                                props.data.scouting[props.method][props.page].sections[index].components.push(createEmptyComponent());
+                                                                props.setData(props.data);
+                                                                console.log(props.data.scouting[props.method][props.page].sections[index].components.length);
+                                                                setComponentIndex(props.data.scouting[props.method][props.page].sections[index].components.length);
+                                                                setSectionIndex(index);
+                                                            }}>COMPONENT</p>
+                                                        );
                                                     }
 
                                                     return retArray.map(val => val);
@@ -104,6 +115,8 @@ const Page: NextPage<PropsData> = (props: PropsData) => {
         {addSection && <NewSection data={props.data} method={props.method} page={props.page} setData={props.setData} back={goBack}/>}
 
         <p>FOOTER : {props.data.scouting[props.method][props.page].footer === "" ? "BLANK" : props.data.scouting[props.method][props.page].footer}</p>
+
+        { componentIndex !== -1 && <EditComponent section={sectionIndex} goBack={() => setComponentIndex(-1)} data={props.data} setData={props.setData} method={props.method} page={props.page} index={componentIndex} />}
     </section>
 };
 

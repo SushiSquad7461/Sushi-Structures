@@ -1,0 +1,136 @@
+.background {
+    height: 100vh !important;
+    width: 100vw !important;
+    z-index: 100;
+    position: absolute;
+    top: -28vh;
+    left: -11vw;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.background > div {
+    height: 100vh !important;
+    width: 100vw !important;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #4F4F4F;
+    opacity: 0.5 !important;
+    z-index: 101 !important;
+}
+
+.background * {
+    z-index: 102 !important;
+}
+
+.background > article {
+    height: 70vh;
+    width: 28vw;
+    background-color: white;
+    border-radius: 1vw;
+    margin-top: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 3vh;
+}
+
+.background section {
+    width: 28vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 3vh;
+    height: 6vh;
+}
+
+.background section > div {
+    display: flex;
+    align-items: center;
+    display: flex;
+    align-items: center !important;
+    justify-content: flex-start !important;
+}
+
+.background section div div {
+    width: 1.3vw !important;
+    height: 1.3vw !important;
+    border-width: 0.2vw !important;
+    border-color: #FF729F !important;
+    border-style: solid;
+    margin: 0px !important;
+}
+
+.background section div div:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #FF729F;
+}
+
+.background section p {
+    font-size: 1.3vw;
+    font-family: "SushiSans";
+    margin-left: 0.4vw;
+    margin-top: 2.8vh;
+}
+
+.background section div input {
+    margin: 0px !important;
+}
+
+.background svg {
+    position: absolute;
+    left: 61.2vw;
+    top: 20vh;
+}
+
+.background svg:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.background input, .background select {
+    border-left: 0px;
+    border-top: 0px;
+    border-right: 0px;
+    border-bottom-width: 0.4vh;
+    border-bottom-color: black;
+    width: 15vw;
+    text-align: center;
+    color: black;
+    font-family: 'Mohave';
+    font-size: 1.3vw;
+    margin-top: 5vh;
+}
+
+.background select {
+    margin-top: 8vh !important;
+}
+
+.background input::placeholder {
+    color: black;
+}
+
+.background button {
+    position: absolute;
+    top: 83vh;
+    background-color: white;
+    border-width: 0.2vw;
+    border-color: black;
+    border-radius: 0.5vw;
+    font-size: 1.5vw;
+    font-family: "SushiSans";
+    padding-left: 0.8vw;
+    padding-right: 0.8vw;
+}
+
+.background button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
