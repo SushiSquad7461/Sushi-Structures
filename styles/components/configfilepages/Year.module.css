@@ -107,3 +107,56 @@
 .year input::placeholder {
     color: white;
 }
+
+.year .text {
+    height: 20vh;
+    width:  17vw;
+    position: absolute;
+    left: 20vw;
+    top: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: white;
+    align-items: center;
+}
+
+.year .text div {
+    display: flex;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-evenly !important;
+    width: 16vw !important;
+    height: 10vh !important;
+}
+
+.year .text p {
+    font-family: 'Mohave';
+    font-size: 1.8vw;
+    font-weight: bolder;
+}
+
+.year .text h6 {
+    font-family: 'SushiSans';
+    font-size: 1.8vw;
+}
+
+.year button {
+    background-color: black !important;
+    border-color:  white !important;
+    color: white;
+    border: black solid 0.2vw;
+    border-radius: 0.5vw;
+    position: absolute;
+    top: 60vh;
+    left: 25vw;
+    font-size: 1.2vw;
+    font-family: "SushiSans";
+    padding-top: 0.5vh !important;
+    padding-bottom: 0.5vh;
+}
+
+.year button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}

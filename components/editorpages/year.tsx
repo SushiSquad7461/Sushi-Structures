@@ -37,6 +37,12 @@ const Year: NextPage<PropsData> = (props: PropsData) => {
             <div className={styles.grey}></div>
             <div className={styles.black}></div>
             <input placeholder="YEAR" onChange={changeYear} value={props.data.year.toString()}/>
+
+            <div className={styles.text}>
+                <div><p>PASSWORD:</p><h6>{props.data.password}</h6></div>
+                <div><p>VERSION:</p><h6>{props.data.version.toString()}</h6></div>
+            </div>
+            <button>SUBMIT FILE</button>
         </article>
     </>
 };

@@ -75,7 +75,6 @@
 .popup p {
     font-family: 'Mohave';
     font-size: 1.5vw;
-    font-weight: bolder;
     margin: 0px;
     height: 4.3vh;
 }
@@ -186,10 +185,6 @@
 
 .colors input::placeholder {
     color: white;
-}
-
-.colors section > div {
-
 }
 
 .colors section div div {

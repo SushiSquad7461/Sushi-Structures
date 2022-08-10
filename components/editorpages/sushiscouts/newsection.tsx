@@ -22,15 +22,17 @@ const NewSection: NextPage<PropsData> = (props: PropsData) => {
     const [componentsInRow, setComponentsInRow] = useState<Array<number>>([]);
 
     function submit() {
+            console.log("ib2");
         if (rowNum !== "" && title !== "" && lightColor !== "" && darkColor !== "" && lightTextColor !== "" && darkTextColor !== "" && componentsInRow.length > 0) {
+            console.log("ib");
             props.data.scouting[props.method][props.page].sections.push({
                 properties: {
                     title: title,
-                    color: lightColor,
+                    color: "#" + lightColor,
                     rows: parseInt(rowNum),
-                    textColor: lightTextColor,
-                    darkColor: darkColor,
-                    darkTextColor: darkTextColor,
+                    textColor: "#" + lightTextColor,
+                    darkColor: "#" + darkColor,
+                    darkTextColor: "#" + darkTextColor,
                     componentsInRow: componentsInRow
                 },
                 components: []
@@ -85,13 +87,13 @@ const NewSection: NextPage<PropsData> = (props: PropsData) => {
                 </article>
             </section>
 
-            <input placeholder="ROW #" value={rowNum} type="number" onChange={event => { 
+            <input placeholder="COLUMN #" value={rowNum} type="number" onChange={event => { 
                 setRowNum(event.target.value); 
                 if (event.target.value !== "" && parseInt(event.target.value) < 1000) { 
                     setComponentsInRow(Array<number>(parseInt(event.target.value)).fill(0));
             }}}/>
 
-            <p>COMPONENTS IN ROW</p>
+            <p>COMPONENTS IN COLUMN</p>
 
             <div className={styles.cir}>
                 {
