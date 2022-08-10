@@ -20,7 +20,9 @@ const EditComponent: NextPage<PropsData> = (props: PropsData) => {
     const [timestamp, setTimestamp] = useState<boolean>(false);
 
     useEffect(() => {
-        const component = props.data.scouting[props.method][props.page].sections[props.section].components[props.index-1];
+        console.log(props.section);
+        console.log(props.index);
+        const component = props.data.scouting[props.method][props.page].sections[props.section].components[props.index];
         setName(component.name);
         setComponent(component.component);
         setRequired(component.required);
@@ -28,7 +30,11 @@ const EditComponent: NextPage<PropsData> = (props: PropsData) => {
     }, []);
 
     function submit() {
-        
+        props.data.scouting[props.method][props.page].sections[props.section].components[props.index].name = name;
+        props.data.scouting[props.method][props.page].sections[props.section].components[props.index].component = component;
+        props.data.scouting[props.method][props.page].sections[props.section].components[props.index].required = required;
+        props.data.scouting[props.method][props.page].sections[props.section].components[props.index].timestamp = timestamp;
+        props.goBack();
     }
 
     return <section className={styles.background}>
@@ -54,7 +60,7 @@ const EditComponent: NextPage<PropsData> = (props: PropsData) => {
                 <div><div className={timestamp ? styles.selected : ""} onClick={() => setTimestamp(!timestamp)}></div><p>Timestamp</p></div>
             </section>
 
-            <button onClick={submit}>ADD</button>
+            <button onClick={submit}>EDIT</button>
 
         </article>
     </section>

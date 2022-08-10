@@ -203,3 +203,9 @@
     opacity: 0.9 !important;
     cursor:  pointer !important;
 }
+
+
+.components .created {
+    color: #FF729F !important;
+    text-transform: uppercase;
+}

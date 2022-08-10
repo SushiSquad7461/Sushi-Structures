@@ -53,6 +53,7 @@
     display: flex;
     align-items: center !important;
     justify-content: flex-start !important;
+    margin-left: 1.3vw;
 }
 
 .background section div div {

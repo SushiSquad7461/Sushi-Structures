@@ -76,14 +76,11 @@ const Page: NextPage<PropsData> = (props: PropsData) => {
 
                                                     for (let i=0; i <key.properties.componentsInRow[val-1]; ++i) {
                                                         retArray.push(
-                                                            <p onClick={ () => {
-                                                                console.log("click");
-                                                                props.data.scouting[props.method][props.page].sections[index].components.push(createEmptyComponent());
-                                                                props.setData(props.data);
-                                                                console.log(props.data.scouting[props.method][props.page].sections[index].components.length);
-                                                                setComponentIndex(props.data.scouting[props.method][props.page].sections[index].components.length);
-                                                                setSectionIndex(index);
-                                                            }}>COMPONENT</p>
+                                                            <p className={key.components[i+startIndex].name === "" ? "" : styles.created}
+                                                                onClick={ () => {
+                                                                    setComponentIndex(startIndex+i);
+                                                                    setSectionIndex(index);
+                                                            }}>{key.components[i+startIndex].name === "" ?  "COMPONENT" : key.components[i+startIndex].name}</p>
                                                         );
                                                     }
 

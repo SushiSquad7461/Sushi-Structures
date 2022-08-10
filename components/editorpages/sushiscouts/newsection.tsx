@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { SetStateAction, useEffect, useState } from "react";
-import { ConfigFile } from "../../../util/configfile";
+import { ConfigFile, createEmptyComponent } from "../../../util/configfile";
 import styles from "../../../styles/components/configfilepages/NewSection.module.css";
 
 type PropsData = {
@@ -22,9 +22,7 @@ const NewSection: NextPage<PropsData> = (props: PropsData) => {
     const [componentsInRow, setComponentsInRow] = useState<Array<number>>([]);
 
     function submit() {
-            console.log("ib2");
         if (rowNum !== "" && title !== "" && lightColor !== "" && darkColor !== "" && lightTextColor !== "" && darkTextColor !== "" && componentsInRow.length > 0) {
-            console.log("ib");
             props.data.scouting[props.method][props.page].sections.push({
                 properties: {
                     title: title,
@@ -37,6 +35,14 @@ const NewSection: NextPage<PropsData> = (props: PropsData) => {
                 },
                 components: []
             });
+
+            for (let i=0; i < parseInt(rowNum); ++i) {
+                console.log("i" + i);
+                for (let j=0; j < componentsInRow[i]; ++j) {
+                    console.log("added");
+                    props.data.scouting[props.method][props.page].sections[props.data.scouting[props.method][props.page].sections.length-1].components.push(createEmptyComponent());
+                }
+            }
             props.setData(props.data);
             props.back();
         }
