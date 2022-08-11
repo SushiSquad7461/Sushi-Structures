@@ -2,12 +2,15 @@ import type { NextPage } from 'next'
 import styles from '../styles/Edit.module.css'
 import Login from '../components/login';
 import { useEffect, useState } from 'react';
+import { ConfigFile, createConfigFile } from '../util/configfile';
+import ConfigFileEditor from '../components/configfileditor';
 
 const Create: NextPage = () => {
   const [login, setLogin] = useState(true);
   const [teamNum, setTeamNum] = useState<Number>(0);
   const [list, setList] = useState<Array<string>>([]);
   const [edit, setEdit] = useState<number>(-1);
+  const [data, setData] = useState<ConfigFile>(createConfigFile(0));
 
   useEffect(() => {
     const teamNum = localStorage.getItem("teamNum");
@@ -42,6 +45,17 @@ const Create: NextPage = () => {
     }
   }
 
+  async function setConfigFile(year: number) {
+    const res = await fetch("/api/getconfigfile?teamNum=" + teamNum + "&year=" + year);
+
+    if (res.ok) {
+        const newData = (JSON.parse((await res.json()).config));
+        console.log(newData);
+        setData(newData);
+        setEdit(year);
+    }
+  }
+
   return (
     <div className={styles.container}>
       { login ? <Login /> : ( edit === -1 ? <article className={styles.edit}>
@@ -50,10 +64,10 @@ const Create: NextPage = () => {
 
         <article>
             { list.map(i => {
-                return <p onClick={() => setEdit(parseInt(i))}>{i} APP</p>
+                return <p onClick={() => setConfigFile(parseInt(i))} key={i}>{i} APP</p>
             }) }
         </article>
-      </article> : <p>YO</p>)
+      </article> : <ConfigFileEditor data={data} setData={setData} reset={() => setEdit(-1)}/>)
       }
     </div>
   )
