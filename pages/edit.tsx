@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 const Create: NextPage = () => {
   const [login, setLogin] = useState(true);
   const [teamNum, setTeamNum] = useState<Number>(0);
+  const [list, setList] = useState<Array<string>>([]);
+  const [edit, setEdit] = useState<number>(-1);
 
   useEffect(() => {
     const teamNum = localStorage.getItem("teamNum");
@@ -14,7 +16,7 @@ const Create: NextPage = () => {
     ( async () => {
         if (teamNum !== null && token !== null) {
             const res = await fetch(`/api/checktoken`, {
-                method: 'POST', // or 'PUT'
+                method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
                 },
@@ -24,6 +26,7 @@ const Create: NextPage = () => {
             if (res.ok) {
                 setTeamNum(parseInt(teamNum));
                 setLogin(false);
+                updateList(parseInt(teamNum));
             }
         }
     })();
@@ -31,20 +34,26 @@ const Create: NextPage = () => {
 
 
 
-  function reset() {
+  async function updateList(teamNum: Number) {
+    const res = await fetch("/api/getconfigfilelist?teamNum=" + teamNum);
 
+    if (res.ok) {
+        setList(JSON.parse((await res.json()).list));
+    }
   }
 
   return (
     <div className={styles.container}>
-      { login ? <Login /> : <article className={styles.edit}>
+      { login ? <Login /> : ( edit === -1 ? <article className={styles.edit}>
         <div className={styles.grey}></div> 
         <div className={styles.black}></div> 
 
         <article>
-
+            { list.map(i => {
+                return <p onClick={() => setEdit(parseInt(i))}>{i} APP</p>
+            }) }
         </article>
-      </article>
+      </article> : <p>YO</p>)
       }
     </div>
   )

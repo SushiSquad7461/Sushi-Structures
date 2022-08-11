@@ -12,17 +12,23 @@ export default async function handler(
       if (teamNum !== undefined) {
         const parsedNum = parseInt(teamNum.toString());
 
+        console.log(parsedNum);
+
         const list = await prisma.configFiles.findMany({
             where: {
                 teamNum: parsedNum,
             }
         });
 
+        console.log(list);
+
         const retList = [];
 
         for (let i=0; i < list.length; ++i) {
             retList.push(list[i].year);
         }
+
+        console.log(retList);
 
         res.status(200).json({ list: JSON.stringify(retList) });
       } else {
