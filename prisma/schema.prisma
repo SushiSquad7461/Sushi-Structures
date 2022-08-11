@@ -17,3 +17,11 @@ model Users {
   token String
   expire DateTime
 }
+
+model ConfigFiles {
+  id Int @id @default(autoincrement())
+  teamNum Int
+  year Int
+  configFile String
+  @@unique([teamNum, year])
+}

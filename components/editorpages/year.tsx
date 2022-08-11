@@ -7,6 +7,7 @@ type PropsData = {
     data: ConfigFile,
     setData: Function,
     setPage: Function,
+    submit: Function,
 };
 
 const Year: NextPage<PropsData> = (props: PropsData) => {
@@ -14,7 +15,7 @@ const Year: NextPage<PropsData> = (props: PropsData) => {
 
     function changeYear(event: any) {
         setYear(event.target.value);
-        props.data.year = (event.target.value);
+        props.data.year = parseInt(event.target.value);
         props.setData(props.data);
     }
 
@@ -42,7 +43,7 @@ const Year: NextPage<PropsData> = (props: PropsData) => {
                 <div><p>PASSWORD:</p><h6>{props.data.password}</h6></div>
                 <div><p>VERSION:</p><h6>{props.data.version.toString()}</h6></div>
             </div>
-            <button>SUBMIT FILE</button>
+            <button onClick={() => props.submit()}>SUBMIT FILE</button>
         </article>
     </>
 };

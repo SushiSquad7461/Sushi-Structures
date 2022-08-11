@@ -23,10 +23,10 @@ export type section = {
 }
 
 export type ConfigFile = {
-    "year": Number,
-    "teamNumber": Number,
+    "year": number,
+    "teamNumber": number,
     "password": string,
-    "version": Number,
+    "version": number,
     "scouting": {
         [method: string]: {
             [page: string]: {
@@ -37,7 +37,7 @@ export type ConfigFile = {
     },
 }
 
-export function createConfigFile(teamNumber: Number): ConfigFile {
+export function createConfigFile(teamNumber: number): ConfigFile {
     const possiblePasswords = ["nami", "sushi", "peepo", "daimler", "unagi", "nori", "sparkie"];
     const ret: ConfigFile = {
         "year": (new Date()).getFullYear(),
