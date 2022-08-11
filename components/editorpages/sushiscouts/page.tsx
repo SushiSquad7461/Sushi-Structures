@@ -64,7 +64,7 @@ const Page: NextPage<PropsData> = (props: PropsData) => {
                                         }
 
                                         return mapArray.map(val => {
-                                            return <section>
+                                            return <section key={val}>
                                                 <h1>COLUMN {val}</h1>
 
                                                 { (() => {
@@ -76,7 +76,7 @@ const Page: NextPage<PropsData> = (props: PropsData) => {
 
                                                     for (let i=0; i <key.properties.componentsInRow[val-1]; ++i) {
                                                         retArray.push(
-                                                            <p className={key.components[i+startIndex].name === "" ? "" : styles.created}
+                                                            <p key={i} className={key.components[i+startIndex].name === "" ? "" : styles.created}
                                                                 onClick={ () => {
                                                                     setComponentIndex(startIndex+i);
                                                                     setSectionIndex(index);
