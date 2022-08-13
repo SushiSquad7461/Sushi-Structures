@@ -176,7 +176,7 @@ const EditComponent: NextPage<PropsData> = (props: PropsData) => {
 
                         <div>
                             { configValues.map((i, index) => {
-                                return <input defaultValue={i} onChange={e => { configValues[index] = e.target.value.trim(); setConfigValues(configValues)}}/>
+                                return <input key={index + "asd"} defaultValue={i} onChange={e => { configValues[index] = e.target.value.trim(); setConfigValues(configValues)}}/>
                             }) }
                         </div>
                     </div> }
