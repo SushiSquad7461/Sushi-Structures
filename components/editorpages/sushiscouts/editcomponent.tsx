@@ -3,6 +3,7 @@ import { SetStateAction, useEffect, useState } from "react";
 import { ConfigFile } from "../../../util/configfile";
 import styles from "../../../styles/components/configfilepages/EditComponent.module.css";
 import { arrayBuffer } from "stream/consumers";
+import e from "cors";
 
 type PropsData = {
     data: ConfigFile,
@@ -40,7 +41,6 @@ const EditComponent: NextPage<PropsData> = (props: PropsData) => {
         setComponent(component.component);
         setRequired(component.required);
         setTimestamp(component.timestamp);
-        setValues(component.values);
         setSetCv(component.setCommonValue);
         setIsCv(component.isCommonValue);
         setUsingValues(isValue.includes(component.component));
@@ -65,7 +65,10 @@ const EditComponent: NextPage<PropsData> = (props: PropsData) => {
             for (let i=valueSplit+1; i < component.values.length; ++i) {
                 newValues.push(component.values[i]);
             }
+
             setValues(newValues);
+        } else {
+            setValues(component.values);
         }
     }, []);
 
@@ -80,9 +83,9 @@ const EditComponent: NextPage<PropsData> = (props: PropsData) => {
         if (component === "multiselect") {
             props.data.scouting[props.method][props.page].sections[props.section].components[props.index].values = ["#o", numOptions, "l", numColumns, ...configValues, "c", ...values];
         } else {
-            console.log("HELLO : " + values);
             props.data.scouting[props.method][props.page].sections[props.section].components[props.index].values = usingValues ? values : [];
         }
+        props.setData(props.data);
         props.goBack();
     }
 
@@ -214,26 +217,18 @@ const EditComponent: NextPage<PropsData> = (props: PropsData) => {
                 <article>
                     {
                         values.map((i, index) => {
-                            let indexSubtraction = 0;
-
-                            if (component === "select") {
-                                indexSubtraction = 1;
-                            }
-
-                            index -= indexSubtraction;
-
-                            if (index < 0) {
+                            if (component === "select" && index < 1) {
                                 return <></>;
+                            } else {
+                                return <section className={styles.rowInput} key={index}>
+                                    <p>{index as number + (component === "select" ? 0 : 1)}</p>
+                                    <input defaultValue={i} onChange={(e) => {
+                                        values[index] = e.target.value;
+                                        console.log(values);
+                                        setValues(values);
+                                    }}/>
+                                </section>;
                             }
-
-                            return <section className={styles.rowInput} key={index}>
-                                <p>{index as number + 1}</p>
-                                <input defaultValue={i} onChange={(e) => {
-                                    values[index+1] = e.target.value;
-                                    console.log(values);
-                                    setValues(values);
-                                }}/>
-                            </section>;
                         })
                     }
                 </article>
