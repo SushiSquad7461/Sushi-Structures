@@ -16,6 +16,16 @@ type PropsData = {
 };
 
 const isValue = ["dropdown", "select", "ranking", "multiselect"];
+const componentToType: {[index: string]: string} = {
+    "number input": "number",
+    "dropdown": "number",
+    "select": "number",
+    "checkbox": "bool",
+    "increment":"number",
+    "ranking": "string",
+    "text input": "string",
+    "multiselect": "number"
+};
 
 const EditComponent: NextPage<PropsData> = (props: PropsData) => {
     const [name, setName] = useState<string>("");
@@ -79,6 +89,7 @@ const EditComponent: NextPage<PropsData> = (props: PropsData) => {
         props.data.scouting[props.method][props.page].sections[props.section].components[props.index].timestamp = timestamp;
         props.data.scouting[props.method][props.page].sections[props.section].components[props.index].isCommonValue = isCv;
         props.data.scouting[props.method][props.page].sections[props.section].components[props.index].setCommonValue = setCv;
+        props.data.scouting[props.method][props.page].sections[props.section].components[props.index].type = componentToType[component];
 
         if (component === "multiselect") {
             props.data.scouting[props.method][props.page].sections[props.section].components[props.index].values = ["#o", numOptions, "l", numColumns, ...configValues, "c", ...values];
