@@ -11,7 +11,7 @@
 .grey {
     position: absolute;
     background-color: #4F4F4F;
-    height: 99vh;
+    height: 110vh;
     width: 90vw;
     transform: rotate(28deg);
     z-index: -2 !important;
@@ -25,7 +25,7 @@
     width: 80vw;
     transform: rotate(40deg);
     position: absolute;
-    top: 65vh;
+    top: 68vh;
     left: 30vw;
     z-index: -4 !important;
 }
